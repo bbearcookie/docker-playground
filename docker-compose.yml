@@ -1,0 +1,22 @@
+version: '3.1'
+
+services:
+  main-db:
+    image: mariadb:11
+    restart: always
+    ports:
+      - '3306:3306'
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: testDB
+      MYSQL_USER: gomdol
+      MYSQL_PASSWORD: 12341234
+    volumes:
+      - ./data:/var/lib/mysql
+  backend-server:
+    image: docker-playground:latest
+    depends_on:
+      - main-db
+    restart: always
+    ports:
+      - '5010:5010'
