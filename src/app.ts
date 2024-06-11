@@ -1,14 +1,15 @@
 import express from 'express';
-import { HELLO } from '@/constants/string';
+import PostRouter from '@/routes/post';
 
 const app = express();
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.use('/posts', PostRouter);
+
 app.get('/', (req, res) => {
   res.send('Hello World!');
-});
-
-app.get('/hello', (req, res) => {
-  res.send(HELLO);
 });
 
 app.listen(5010, () => {
