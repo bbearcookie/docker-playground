@@ -13,10 +13,16 @@ services:
       MYSQL_PASSWORD: 12341234
     volumes:
       - ./data:/var/lib/mysql
+      - ./schema/ddl.sql:/docker-entrypoint-initdb.d/ddl.sql
   backend-server:
-    image: docker-playground:latest
     depends_on:
       - main-db
+    build:
+      context: .
+      dockerfile: ./Dockerfile
     restart: always
     ports:
       - '5010:5010'
+volumes:
+  main-db:
+    driver: local
