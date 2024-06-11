@@ -6,7 +6,7 @@ services:
     restart: always
     ports:
       - '3306:3306'
-    env_file: .env.database
+    env_file: .env
     volumes:
       - ./data:/var/lib/mysql
       - ./schema/ddl.sql:/docker-entrypoint-initdb.d/ddl.sql

@@ -1,5 +1,9 @@
+import { config } from 'dotenv';
+import { expand } from 'dotenv-expand';
 import express from 'express';
 import PostRouter from '@/routes/post';
+
+expand(config());
 
 const app = express();
 
