@@ -8,5 +8,6 @@
 ```sh
 corepack enable # corepack 활성화
 pnpm install # 패키지 설치
+pnpm prisma generate # Prisma 클라이언트에 현재 Prisma Schema의 내용을 반영 (schema.prisma 파일 바꿀 때마다 실행해야 함.)
 pnpm dev # Hot Reload가 적용된 개발 서버 실행
 ```
